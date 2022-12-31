@@ -16,3 +16,5 @@ These are:
 | Geode                       | Pivotal               | [GitHub](https://github.com/apache/geode)          | Apache 2.0                   | 2015 (open-sourced 2019) | Local and Distributed | No           | No     | Yes          |
 | Hazelcast                   | Hazelcast             | [GitHub](https://github.com/hazelcast/hazelcast)   | Apache 2.0                   | 2008                     | Local and Distributed | Yes          | Yes    | Yes          |
 | Redis                       | Redis                 | [GitHub](https://github.com/redis/redis/)          | BSD 3                        | 2009                     | Distributed           | ?            | Yes    | Yes          |
+
+This is using Java 11.
