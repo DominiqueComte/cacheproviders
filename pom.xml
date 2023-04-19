@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>org.jgroups</groupId>
                 <artifactId>jgroups</artifactId>
-                <version>5.2.11.Final</version>
+                <version>5.2.14.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.logging</groupId>
