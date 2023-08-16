@@ -103,7 +103,7 @@
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-core</artifactId>
-            <version>14.0.13.Final</version>
+            <version>14.0.14.Final</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
