@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 public class RedisProvider implements CacheProvider<Long, String> {
 
 	RedisServer server;
-	private JedisPool pool;
+	private final JedisPool pool;
 
 	public RedisProvider() {
 		// bind address for the Redis server
@@ -26,8 +26,18 @@ public class RedisProvider implements CacheProvider<Long, String> {
 			throw new RuntimeException("Could not get a free port for the Redis server", e);
 		}
 
-		server = RedisServer.builder().setting("bind " + serverIp).port(port).build(); // bind to ignore Windows firewall popup each time the server starts
-		server.start();
+		try {
+			server = RedisServer.newRedisServer().setting("bind " + serverIp).port(port).build(); // bind to ignore Windows firewall popup each time the server starts
+		} catch (IOException e) {
+			throw new RuntimeException("Could not build the embedded Redis server", e);
+		}
+
+		try {
+			server.start();
+		} catch (IOException e) {
+			throw new RuntimeException("Could not start the embedded Redis server", e);
+		}
+
 		pool = new JedisPool(serverIp, port);
 	}
 
@@ -37,7 +47,7 @@ public class RedisProvider implements CacheProvider<Long, String> {
 		try {
 			jedis.set(String.valueOf(key), value);
 		} catch (JedisException e) {
-			// if something wrong happens, return it back to the pool
+			// if something wrong happens, return it to the pool
 			pool.returnBrokenResource(jedis);
 			jedis = null;
 		} finally {
