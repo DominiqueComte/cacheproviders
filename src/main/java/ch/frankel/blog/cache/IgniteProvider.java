@@ -1,15 +1,15 @@
 package ch.frankel.blog.cache;
 
-import java.io.IOException;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
-import org.apache.ignite.lang.IgniteFuture;
+
+import java.io.IOException;
 
 public class IgniteProvider implements CacheProvider<Long, String> {
 
     private final Ignite ignite;
-    private IgniteCache<Long, String> cache;
+    private final IgniteCache<Long, String> cache;
 
     public IgniteProvider() {
         ignite = Ignition.start();
