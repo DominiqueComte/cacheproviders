@@ -12,4 +12,4 @@ updates:
     groups:
       slf4j:
         patterns:
-        - "slf4j-*"
+        - "org.slf4j*"
