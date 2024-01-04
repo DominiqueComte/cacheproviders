@@ -13,3 +13,6 @@ updates:
       slf4j:
         patterns:
         - "org.slf4j*"
+      errorprone:
+        patterns:
+        - "*error-prone*"
