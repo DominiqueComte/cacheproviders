@@ -129,7 +129,7 @@
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-component-annotations</artifactId>
-            <version>14.0.21.Final</version>
+            <version>14.0.22.Final</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
