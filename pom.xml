@@ -145,7 +145,7 @@
         <dependency>
             <groupId>com.oracle.coherence.ce</groupId>
             <artifactId>coherence</artifactId>
-            <version>23.09.2</version>
+            <version>26.07</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
