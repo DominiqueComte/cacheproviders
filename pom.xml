@@ -9,8 +9,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -41,7 +40,7 @@
             <dependency>
                 <groupId>org.jboss.logging</groupId>
                 <artifactId>jboss-logging</artifactId>
-                <version>3.5.3.Final</version>
+                <version>3.6.3.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
@@ -124,12 +123,12 @@
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-core</artifactId>
-            <version>14.0.25.Final</version>
+            <version>16.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-component-annotations</artifactId>
-            <version>16.2.2</version>
+            <version>16.3.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -260,6 +259,10 @@
                 <configuration>
                     <argLine>
                         -Dtangosol.coherence.distributed.localstorage=true
+                        -Dcoherence.wka=127.0.0.1
+                        -Dcoherence.wka.port=47574
+                        -Dcoherence.cluster=test
+                        -Dcoherence.clusterport=47574
                         --add-opens=java.base/jdk.internal.access=ALL-UNNAMED
                         --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED
                         --add-opens=java.base/sun.nio.ch=ALL-UNNAMED
