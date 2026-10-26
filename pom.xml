@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>blog.frankel.ch</groupId>
@@ -46,8 +45,8 @@
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
                 <version>2.22.3</version>
-                <scope>import</scope>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.sun.istack</groupId>
@@ -257,37 +256,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>
-                        -Dtangosol.coherence.distributed.localstorage=true
-                        -Dcoherence.wka=127.0.0.1
-                        -Dcoherence.wka.port=47574
-                        -Dcoherence.cluster=test
-                        -Dcoherence.clusterport=47574
-                        --add-opens=java.base/jdk.internal.access=ALL-UNNAMED
-                        --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED
-                        --add-opens=java.base/sun.nio.ch=ALL-UNNAMED
-                        --add-opens=java.base/sun.util.calendar=ALL-UNNAMED
-                        --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED
-                        --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED
-                        --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED
-                        --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED
-                        --add-opens=java.base/java.io=ALL-UNNAMED
-                        --add-opens=java.base/java.nio=ALL-UNNAMED
-                        --add-opens=java.base/java.net=ALL-UNNAMED
-                        --add-opens=java.base/java.util=ALL-UNNAMED
-                        --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
-                        --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED
-                        --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED
-                        --add-opens=java.base/java.lang=ALL-UNNAMED
-                        --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
-                        --add-opens=java.base/java.math=ALL-UNNAMED
-                        --add-opens=java.sql/java.sql=ALL-UNNAMED
-                        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
-                        --add-opens=java.base/java.time=ALL-UNNAMED
-                        --add-opens=java.base/java.text=ALL-UNNAMED
-                        --add-opens=java.management/sun.management=ALL-UNNAMED
-                        --add-opens java.desktop/java.awt.font=ALL-UNNAMED
-                    </argLine>
+                    <argLine> -Dtangosol.coherence.distributed.localstorage=true -Dcoherence.wka=127.0.0.1 -Dcoherence.wka.port=47574 -Dcoherence.cluster=test -Dcoherence.clusterport=47574 --add-opens=java.base/jdk.internal.access=ALL-UNNAMED --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.math=ALL-UNNAMED --add-opens=java.sql/java.sql=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -297,6 +266,8 @@
                     <compilerArgs>
                         <arg>-XDcompilePolicy=simple</arg>
                         <arg>-Xplugin:ErrorProne</arg>
+                        <arg>--should-stop=ifError=FLOW</arg>
+                        <arg>-XDaddTypeAnnotationsToSymbol=true</arg>
                     </compilerArgs>
                     <annotationProcessorPaths>
                         <path>
